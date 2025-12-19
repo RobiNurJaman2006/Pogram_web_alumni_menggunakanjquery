@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Web Alumni</title>
+
+    <!-- CDN jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+      #dataAlumni {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Data Alumni</h2>
+
+    <input type="text" id="cari" placeholder="Cari nama alumni" />
+    <br /><br />
+
+    <button id="tampil">Tampilkan Data</button>
+    <button id="sembunyi">Sembunyikan Data</button>
+
+    <ul id="dataAlumni">
+      <li>PANI PUJA YANTI – Teknik Informatika – 2025</li>
+      <li>NAUFAL – Sistem Informasi – 2025</li>
+      <li>RIZAL – Teknik Informatika – 2025</li>
+    </ul>
+
+    <script>
+      $(document).ready(function () {
+        $("#tampil").click(function () {
+          $("#dataAlumni").slideDown();
+        });
+
+        $("#sembunyi").click(function () {
+          $("#dataAlumni").slideUp();
+        });
+
+        $("#cari").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $("#dataAlumni li").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
